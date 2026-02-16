@@ -1,0 +1,42 @@
+@font-face {
+    font-family: sheryians;
+    src: url(./NeueMachina-Light.woff2);
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+#main{
+    height:100%;
+    width: 100%;
+    background-image: url(https://www.bmw-gallopsautohaus.in/sites/default/files/2023-01/1366x450.jpg);
+    background-size: cover;
+    background-position:center;
+    padding: 30px;
+    text-align: center;
+}
+h1{
+    font-family: sheryians;
+    font-size: 80px;
+    font-weight: 800;
+    color: bisque;
+}
+button{
+    margin: 50px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 15px;
+    background-color: #962231;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    color: white;
+}
+button:hover{
+    background-color: #7a1c28;
+    transform: scale(1.05);
+}
