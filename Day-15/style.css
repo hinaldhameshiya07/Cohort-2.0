@@ -1,0 +1,59 @@
+@font-face {
+    font-family: HelveticaNowDisplay;
+    src: url(./HelveticaNowDisplay-Regular.woff2);
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    font-family: HelveticaNowDisplay;
+}
+#profiles{
+    height: 100%;
+    width: 100%;
+    background-color: #FDFCEB;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.profile__card{
+    padding: 10px 10px;
+    height: 300px;
+    width: 250px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.22);
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    justify-content: space-evenly;
+    text-align: center;
+}
+.profile__pic{
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.profile__description{
+    color: rgb(136, 136, 136);
+}
+.profile__follow{
+    padding: 10px 20px;
+    color: rgb(0, 180, 255);
+    border-radius: 25px;
+    background-color: transparent;
+    border-color: rgb(0, 180, 255);
+    cursor: pointer;
+}
+.profile__follow:hover{
+    color: white;
+    background-color: rgb(0, 180, 255);
+}
