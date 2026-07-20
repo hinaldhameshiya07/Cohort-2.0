@@ -1,0 +1,245 @@
+@font-face {
+    font-family: Chillax;
+    src: url(./Chillax-Regular.woff);
+}
+:root{
+    --primary-gray: #1E1E1E;
+    --secondary-yellow: #CEBD63;
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: Chillax;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+html{ font-size: clamp(14px, 1rem, 18px); }
+@mixin flex-column($gap:0){
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+}
+.sec-hero,.sec-statics,.sec-philosophy, .sec-vision, .sec-team-intro{ max-width: 2000px; }
+.sec-head{
+    font-size: 2.15rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    line-height: 1.10;
+}
+.sec-label{
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+.btn-none-bg{
+    width: fit-content;
+    background-color: var(--primary-gray);
+    color: white;
+    border: none;
+    outline: none;
+    padding: 0.7rem 1rem;
+    border-radius: 0.7rem;
+
+    i{
+        padding: 0.5rem;
+        margin: 5px;
+        border-radius: 50%;
+        border: 1px solid white;
+    }
+}
+main{
+    width: 100%;
+    @include flex-column(0rem);
+    align-items: center;
+
+    .sec-hero,.sec-philosophy,.sec-vision,.sec-join-team{
+        width: 100%;
+        @include flex-column(1rem);
+        padding: 1rem;
+
+        .sec-image{
+        width: 100%;
+
+            .hero-img{
+                width: 100%;
+                border-radius: 0.7rem;    
+            }
+        }
+
+        .sec-description{
+           background-color: var(--primary-gray); 
+           padding: 1.5rem;
+           border-radius: 0.7rem;
+           @include flex-column(3rem);
+
+           .sec-detail{
+                @include flex-column(0.7rem);   
+
+                .sec-info{
+                    font-weight: 100;
+                    font-size: 1.10rem;
+                    opacity: 0.5;
+                    list-style: none;
+                    line-height: 1.5;
+                }
+           }
+        }
+    }
+
+    .sec-statics{
+        @include flex-column(1rem);
+        width: 100%;
+        padding: 1rem;
+        align-items: center;
+        justify-content: space-around;
+
+        .static-info-block{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            justify-content: space-around;
+
+            .static-info{
+                @include flex-column(1rem);
+            }
+        }        
+    }
+
+    .sec-philosophy,.sec-vision{
+        .sec-description{
+            .sec-detail{
+                .sec-info-block{
+                    @include flex-column(0rem);
+                }
+            }
+        }
+    }
+
+    .sec-vision{
+        flex-direction: column-reverse;
+    }
+
+    .sec-team-intro{
+        width: 100%;
+        padding: 1rem;
+        @include flex-column(1rem);
+
+        .section-head{
+            padding: 1rem;
+        }
+
+        .profile-info-sec{
+            width: 100%;
+             @include flex-column(2rem);
+             padding: 1rem;
+
+             .sec-profile1, .sec-profile2, .sec-profile3{
+                width: 100%;
+                padding: 1rem;
+                background-image: url(./team-01-p-800.jpeg);
+                background-size: cover;
+                aspect-ratio: 1/1;
+                border-radius: 0.7rem;
+                @include flex-column(0rem);
+                justify-content: space-between;
+                    
+                .media-action{
+                    display: flex;
+                    align-items: center;
+                    justify-content: end;
+                    gap: 0.7rem;
+                }
+                .media-action>i,.sec-profile-info{
+                        padding: 0.5rem;
+                        border: 0.5px solid gray;
+                        border-radius: 50%;
+                        background: linear-gradient(rgba(128, 128, 128, 0.300));
+                        backdrop-filter: blur(3px);
+                }
+                .sec-profile-info{
+                    border-radius: 0.7rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .sec-head{
+                        font-size: 1rem;
+                    }
+                }
+            }
+            .sec-profile2{ background-image: url(./team-02-p-800.jpeg);}
+            .sec-profile3{ background-image: url(./team-03-p-800.jpeg);}
+        }      
+    }
+
+    .sec-contact{
+        padding: 0.8rem;
+        width: 98%;
+        border-radius: 0.7rem;
+        background-color: var(--secondary-yellow);
+        color: #1E1E1E;
+
+        .sec-head{
+            font-size: 2.20rem;
+            letter-spacing: 0.1rem;
+        }
+    }
+}
+@media (min-width: 900px){
+    main{
+        .sec-hero,.sec-philosophy,.sec-vision{
+            padding: 1rem 4rem;
+            flex-direction: row;
+
+            .sec-image, .sec-description{
+                width: 50%;
+            }
+
+            .sec-description{
+                justify-content: space-between;
+                padding: 3rem;
+
+                .sec-detail{
+                    gap: 1.5rem;
+
+                    .sec-head{
+                        font-size: 3.5rem;
+                    }
+                    .sec-info{
+                        width: 80%;
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+
+        .sec-statics{
+            flex-direction: row;
+        }
+
+        .sec-philosophy, .sec-vision{
+            .sec-description{
+                .sec-detail{
+                    .sec-info-block{
+                        flex-direction: row;
+                        text-align: left;
+                        gap: 1rem;
+                    }
+                }
+            }
+        }
+
+        .sec-team-intro{
+            padding: 1rem 4rem;
+            .profile-info-sec{
+                flex-direction: row;
+            }
+        }
+    }   
+}
