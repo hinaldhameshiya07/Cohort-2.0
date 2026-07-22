@@ -1,0 +1,21 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+.main{
+    height: 200%;
+    width: 100%;
+    background-color: #555;
+    cursor: none;
+}
+.sec-img{
+    height: 50px;
+    width: 50px;
+    transform: translate(-50%,-50%);
+    position: fixed;
+}
