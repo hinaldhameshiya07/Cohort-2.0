@@ -1,0 +1,50 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+body {
+    background: #111;
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.sec{
+    max-width: 300px;
+    padding-inline: 20px;
+    padding-block: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: 
+        linear-gradient(black) padding-box, 
+        conic-gradient(from var(--border-animate),black,black,black,#ff0000,black) border-box;
+    
+    border: 5px solid rgba(0, 0, 0, 0);
+    border-radius: 15px;
+    box-shadow: 0 0 60px #ff0000;
+    animation: animate 5s linear infinite;
+}
+.sec-img{
+    width: 100%;
+    border-radius: 10px;
+}
+@property --border-animate{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+@keyframes animate {
+    from{
+        --border-animate: 0deg;
+    }
+    to{
+        --border-animate: 360deg;
+    }
+}
