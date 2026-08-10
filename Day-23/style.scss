@@ -9,8 +9,8 @@
 }
 
 * {
-    margin: 0%;
-    padding: 0%;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: Chillax;
 }
@@ -37,7 +37,10 @@ html {
 .sec-statics,
 .sec-philosophy,
 .sec-vision,
-.sec-team-intro {
+.sec-team-intro,
+.sec-join-team,
+.sec-contact {
+    width: 100%;
     max-width: 2000px;
 }
 
@@ -80,7 +83,6 @@ main {
     .sec-philosophy,
     .sec-vision,
     .sec-join-team {
-        width: 100%;
         @include flex-column(1rem);
         padding: 1rem;
 
@@ -116,7 +118,6 @@ main {
 
     .sec-statics {
         @include flex-column(1rem);
-        width: 100%;
         padding: 1rem;
         align-items: center;
         justify-content: space-around;
@@ -150,7 +151,6 @@ main {
     }
 
     .sec-team-intro {
-        width: 100%;
         padding: 1rem;
         @include flex-column(1rem);
 
@@ -217,29 +217,39 @@ main {
     }
 
     .sec-contact {
-        padding: 0.8rem;
-        width: 98%;
-        border-radius: 0.7rem;
-        background-color: var(--secondary-yellow);
-        color: #1E1E1E;
+        padding: 1rem;
+        width: 100%;
 
-        .sec-head {
-            font-size: 2.20rem;
-            letter-spacing: 0.1rem;
+        .sec-description {
+            background-color: var(--secondary-yellow);
+            color: #1E1E1E;
+            padding: 3rem 1.5rem;
+            border-radius: 0.7rem;
+            @include flex-column(2rem);
+            justify-content: space-between;
+
+            .sec-label {
+                color: #1E1E1E;
+            }
+
+            .sec-head {
+                font-size: 2.2rem;
+                letter-spacing: -0.02em;
+            }
         }
     }
 }
 
-// DESKTOP
 @media (min-width: 900px) {
 
     main {
+
         .sec-hero,
         .sec-philosophy,
         .sec-vision,
         .sec-join-team {
-            padding: 1rem 4rem;
             flex-direction: row;
+            padding: 1rem 4rem;
 
             .sec-image,
             .sec-description {
@@ -281,11 +291,8 @@ main {
 
         .sec-philosophy,
         .sec-vision {
-
             .sec-description {
-
                 .sec-detail {
-
                     .sec-info-block {
                         flex-direction: row;
                         text-align: left;
@@ -313,7 +320,6 @@ main {
         }
 
         .sec-join-team {
-
             .sec-description {
                 justify-content: center;
                 gap: 2rem;
@@ -321,13 +327,16 @@ main {
         }
 
         .sec-contact {
-            width: calc(100% - 8rem);
-            max-width: 2000px;
-            margin: 1rem 4rem;
-            padding: 3rem;
+            padding: 1rem 4rem;
 
-            .sec-head {
-                font-size: 3.5rem;
+            .sec-description {
+                padding: 4rem 3rem;
+                min-height: 350px;
+
+                .sec-head {
+                    font-size: 3.5rem;
+                    max-width: 80%;
+                }
             }
         }
     }
