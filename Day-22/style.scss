@@ -1,66 +1,72 @@
-*{
-    margin: 0%;
-    padding: 0%;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-html,body,main{
-    height: 100%;
+html,
+body,
+main {
     width: 100%;
+    height: 100%;
 }
 
 .parent {
+    height: 100%;
+    min-height: 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(4, minmax(0, 1fr));
     gap: 15px;
     padding: 15px;
     background-color: #E50914;
     aspect-ratio: inherit;
 
-    .sec-img{
+    .secimg {
         position: relative;
         overflow: hidden;
-        
+        min-height: 0;
+        min-width: 0;
     }
 
-    #sec-img1{
+    #sec-img1 {
         grid-row: span 4 / span 4;
         aspect-ratio: 1.45 / 2;
+        grid-template-rows: repeat(4, 1fr);
     }
 
-    #sec-img2{
+    #sec-img2 {
         grid-column: span 3 / span 3;
         grid-row: span 2 / span 2;
         aspect-ratio: 3.10 / 1;
     }
 
-    #sec-img3{
+    #sec-img3 {
         grid-row: span 2 / span 2;
         grid-column-start: 2;
         grid-row-start: 3;
         aspect-ratio: 1.50 / 1.50;
     }
 
-    #sec-img4{
+    #sec-img4 {
         grid-row: span 2 / span 2;
         grid-column-start: 3;
         grid-row-start: 3;
         aspect-ratio: 1.50 / 1.50;
     }
 
-    #sec-img5{
+    #sec-img5 {
         grid-row: span 2 / span 2;
         grid-column-start: 4;
         grid-row-start: 3;
         aspect-ratio: 1.50 / 1.50;
     }
 
-    .img{
+    .img {
         width: 100%;
         aspect-ratio: inherit;
         object-fit: cover;
         display: block;
         border-radius: 15px;
     }
-}  
+}
