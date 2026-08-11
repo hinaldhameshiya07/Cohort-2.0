@@ -25,18 +25,17 @@ greeting("Mahi");
 // 4. Use rest parameters to make a function that adds unlimited numbers.
 
 let numbers = [];
-while(true){
-    let inputInfi = prompt("Enter no to sum : ");
-    if(inputInfi === "stop") break;
-    numbers.push(+inputInfi);
+while (true) {
+  let input = prompt("Enter a number to add (type 'stop' to finish):");
+  if (input === "stop") {
+    break;
+  }
+  numbers.push(Number(input));
 }
-function addInfi(...numbers){
-    let sumInfi = numbers.reduce(function (a,b){
-        return a+b;
-    },0);
-    console.log(sumInfi);
+function addInfi(...numbers) {
+  return numbers.reduce((sum, value) => sum + value, 0);
 }
-addInfi(...numbers);
+console.log(addInfi(...numbers));
 
 // 5. Create an IIFE that prints `"I run instantly!"`.
 
@@ -59,7 +58,7 @@ io();
 
 let fruits = ["apple", "banana", "cherry", "watermelon"];
 fruits.push("kiwi");
-fruits.unshift("Mango");
+fruits.shift("Mango");
 console.log(fruits);
 
 // 8. Use a `for` loop to print all elements of an array.
@@ -76,7 +75,7 @@ let person = {
   city: "Delhi",
 };
 for (let key in person) {
-  console.log(key, person[key]);
+  console.log(`${key} : ${person[key]}`);
 }
 
 // 10. Use `setTimeout()` to log `"Time’s up!"` after 2 seconds.
@@ -103,16 +102,16 @@ runTwice(function () {
 
 let global = 47;
 function pure(val1, val2) {
-  console.log(val1 + val2);
+  return val1 + val2;
 }
 function impure(val) {
   global++;
-  console.log(val + global);
+  return val + global;
 }
-pure(10, 20);
-pure(10, 20);
-impure(2);
-impure(2);
+console.log(pure(10, 20));
+console.log(pure(30, 20));
+console.log(impure(2));
+console.log(impure(2));
 
 // 3. Write a function that uses object destructuring inside parameters to extract and print `name` and `age`.
 
@@ -123,8 +122,8 @@ objDes({ name: "siddhi", age: 21, email: "test@gmail.com" });
 
 // 4. Demonstrate the difference between normal function and arrow function when used as object methods (the `this` issue).
 
-// normal function : ES5 / when NF used as object method with this kayword it will not loose it's value...
-// fat arrow function : ES6 / when FAF used as object mthhod with this keyword it will loose it's value...
+// normal function : ES5 / When called as an object method, `this` refers to the object.
+// fat arrow function : ES6 /  Arrow functions do not have their own `this`. They inherit `this` from the surrounding lexical scope.
 
 let obj1 = {
   name: "xyz",
@@ -195,5 +194,5 @@ let nestObj = {
   },
 };
 
-let {city} = nestObj.user.address;
+let { city } = nestObj.user.address;
 console.log(nestObj.user.address.city, city);
