@@ -11,7 +11,7 @@ for (let i = 1; i <= 10; i++) {
 for (let i = 1; i <= 20; i++) {
   if (i % 2 == 0) {
     console.log(`${i} is even number`);
-  } else console.log();
+  }
 }
 
 for (let i = 2; i <= 20; i += 2) {
@@ -33,27 +33,28 @@ for (let i = 0; i < 5; i++) {
 // 5. Ask the user for a number and print whether each
 // number from 1 to that number is even or odd. (e.g., "1 is odd", "2 is even", ... )
 
-let num = prompt("Enter a number :");
+let num = prompt("Enter a number (e.g., 10):");
 console.log(`from 1 to ${num} odd and even number :`);
 for (let q = 1; q <= num; q++) {
   q % 2 === 0 ? console.log(`${q} is even`) : console.log(`${q} is odd`);
 }
 
 // 6. ask user for a number and say if its positive or negetive use prompt and condition
-
 // string convert into number : 1. parseInt() 2. Number 3. +
 
-let digit = +prompt("Enter a number :");
-let result =
-  digit > 0
-    ? console.log(`${digit} is positive`)
-    : console.log(`${digit} is negative`);
-console.log(result);
+let digit = +prompt("Enter a number to check if it is positive or negative:");
+if(digit > 0){
+  console.log(`${digit} is positive`);
+} else if(digit === 0){
+  console.log(`${digit} is zero`);
+} else{
+  console.log(`${digit} is negative`)
+}
 
 // 7. Ask user’s age and check if eligible to vote
 // If age >= 18 → “Eligible”, else → “Not eligible”
 
-let age = prompt("Enter a number : ");
+let age = prompt("Enter your age in years (e.g., 18):");
 console.log(age);
 if (age === null) console.error("you pressed enter...!!!");
 else {
@@ -107,7 +108,7 @@ console.log(`Total Count is ${counter}`);
 // 10. Ask user for password and print access status
 // Hardcoded correct password. Compare with user input.
 
-let password = "Times_24*7";
+let password = "12345";
 let pass = prompt("Enter your password : ");
 if (pass == null) {
   console.error("You Pressed Cancel");
@@ -125,13 +126,11 @@ if (pass == null) {
 // If user gets it right early, stop. If not → “Account locked”
 
 let attempt = 0;
-let passs;
-let passwordd = "Times_24*7";
 while (attempt < 3) {
-  passs = prompt("Enter your password : ");
-  if (passs == null) {
+  let pass = prompt("Enter your password (3 attempts allowed):");
+  if (pass == null) {
     console.error("You pressed cancel...!!!");
-  } else if (passs === passwordd) {
+  } else if (pass === password) {
     console.log("Password matched...!");
     break;
   } else {
@@ -167,16 +166,18 @@ while (attempt < 3) {
 let count = 0;
 let word;
 while (word !== "stop") {
-  word = prompt("Enter a word: ");
+  word = prompt("Enter a word ('yes' to count, 'stop' to finish):");
   console.log(word);
-  if (word === "yes") count++;
+  if (word === "yes"){
+    count++;
+  }
 }
 console.log(`Total word yes count : ${count}`);
 
 // 13. Print numbers divisible by 7 from 1 to 50
 // Use modulo % and loop.
 
-for (let i = 1; i < 50; i++) {
+for (let i = 1; i <= 50; i++) {
   if (i % 7 === 0) {
     console.log(i);
   }
@@ -186,7 +187,7 @@ for (let i = 1; i < 50; i++) {
 // Add only odd numbers. Print final sum.
 
 let sum = 0;
-for (let i = 1; i < 30; i++) {
+for (let i = 1; i <= 30; i++) {
   if (i % 2 !== 0) {
     console.log(i);
     sum += i;
@@ -198,16 +199,19 @@ console.log(`Total sum is : ${sum}`);
 // Use while loop. Stop only if input is even.
 
 let askNum;
-while (askNum % 2 !== 0) {
-  askNum = +prompt("Enter a word: ");
+while (true) {
+  askNum = +(prompt("Enter an even number (e.g., 24):"));
   console.log(askNum);
+  if(askNum % 2 !== 0){
+    break;
+  }
 }
 
 // 16. Print numbers between two user inputs
 // Input start and end using prompt() → print all between.
 
-let start = +prompt("Enter start number :");
-let end = +prompt("Enter end number :");
+let start = +prompt("Enter the starting number :");
+let end = +prompt("Enter the ending number :");
 if (start > end) console.error("start can not be bigger then end");
 for (let i = start; i <= end; i++) {
   console.log(i);
@@ -218,7 +222,7 @@ for (let i = start; i <= end; i++) {
 
 let oddcount = 0;
 for (let i = 1; i <= 20; i++) {
-  if (i % 0 !== 0) {
+  if (i % 2 !== 0) {
     oddcount++;
     console.log(i);
     if (oddcount === 3) {
@@ -233,13 +237,13 @@ for (let i = 1; i <= 20; i++) {
 let numPos;
 let timer = 0;
 for (let i = 0; i < 5; i++) {
-  numPos = +prompt("Enter number: ");
+  numPos = Number(prompt(`Enter number ${i + 1} of 5:`));
   console.log(numPos);
   if (numPos >= 0) {
     timer++;
   }
 }
-console.log(`Total positive number is : ${count}`);
+console.log(`Total positive number is : ${timer}`);
 
 // 19. ATM Simulator – Allow 3 withdrawals
 // Start with ₹1000 balance. Ask withdrawal amount 3 times.
@@ -250,13 +254,15 @@ console.log(`Total positive number is : ${count}`);
 let balance = 1000;
 let attempts = 0;
 while (attempts < 3) {
-  let amount = Number(prompt("Enter withdrawal amount:"));
-  if (amount <= balance) {
-    balance -= amount;
-    console.log(`₹${amount} withdrawn successfully`);
-    console.log(`Remaining balance: ₹${balance}`);
-  } else {
-    console.error("Insufficient balance");
-  }
-  attempts++;
+   let amount = Number(prompt("Enter withdrawal amount (maximum ₹1000):"));
+    if (amount <= 0) {
+        console.error("Enter a valid amount");
+    } else if (amount <= balance) {
+        balance -= amount;
+        console.log(`₹${amount} withdrawn successfully`);
+        console.log(`Remaining balance: ₹${balance}`);
+    } else {
+        console.error("Insufficient balance");
+    }
+    attempts++;
 }
